@@ -1,0 +1,33 @@
+{
+    "name": "Adafruit BMP280 Library",
+    "description": "",
+    "keywords": "BMP280",
+    "authors":
+    [
+        {
+            "name": "Bas Schouten",
+            "maintainer": true
+        },
+        {
+            "name": "Jeroen van de Vorst"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/I-Connect/Adafruit_BMP280_Library.git"
+    },
+    "frameworks": "Arduino",
+    "platforms": [
+        "espressif32",
+        "atmelavr"
+    ],
+    "build": {
+        "flags": "-Wno-unused-function"
+    },
+    "dependencies": [
+        {
+            "name": "Adafruit_Sensor",
+            "version": "https://github.com/adafruit/Adafruit_Sensor.git"
+        }
+    ]
+}
