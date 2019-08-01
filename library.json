@@ -26,7 +26,7 @@
     },
     "dependencies": [
         {
-            "name": "Adafruit_Sensor",
+            "name": "Adafruit Unified Sensor",
             "version": "~1.0.3"
         }
     ]
