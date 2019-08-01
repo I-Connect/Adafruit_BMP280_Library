@@ -27,7 +27,7 @@
     "dependencies": [
         {
             "name": "Adafruit_Sensor",
-            "version": "https://github.com/adafruit/Adafruit_Sensor.git"
+            "version": "~1.0.3"
         }
     ]
 }
