@@ -1,5 +1,5 @@
 {
-    "name": "Sense BPM280",
+    "name": "Sense_BMP280",
     "description": "Sense implementation of the Adafruit BMP280 Library",
     "keywords": "BMP280",
     "authors":
