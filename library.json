@@ -1,6 +1,6 @@
 {
-    "name": "Adafruit BMP280 Library",
-    "description": "",
+    "name": "Sense BPM280",
+    "description": "Sense implementation of the Adafruit BMP280 Library",
     "keywords": "BMP280",
     "authors":
     [
@@ -14,7 +14,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/I-Connect/Adafruit_BMP280_Library.git"
+        "url": "https://github.com/I-Connect/Sense_BMP280.git"
     },
     "frameworks": "Arduino",
     "platforms": [
