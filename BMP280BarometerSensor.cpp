@@ -5,7 +5,7 @@
 #include "BMP280BarometerSensor.h"
 #include "SenseUtils.h"
 
-BMP280BarometerSensor::BMP280BarometerSensor(uint8_t sensorId) : TemperatureSensor(sensorId) {}
+BMP280BarometerSensor::BMP280BarometerSensor(uint8_t sensorId) : SenseNode(sensorId) {}
 
 void BMP280BarometerSensor::initialize() {
   sensorActive = bmp.begin();

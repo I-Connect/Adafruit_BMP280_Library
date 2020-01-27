@@ -1,9 +1,9 @@
 
 #pragma once
 
+#include "SenseNode.h"
 #include "SenseI2CBusSensor.h"
 #include "Adafruit_BMP280.h"
-#include "TemperatureSensor.h"
 
 struct BarometerResult
 {
@@ -14,7 +14,7 @@ struct BarometerResult
 /*
   I2C barometer sensor, address = 0x77
 */
-class BMP280BarometerSensor : virtual SenseI2CWireUser, public TemperatureSensor
+class BMP280BarometerSensor : virtual SenseI2CWireUser, public SenseNode
 {
 public:
   BMP280BarometerSensor(uint8_t sensorId);
@@ -22,12 +22,12 @@ public:
   virtual int32_t getlastPressure();
   virtual int32_t getPreviousPressure();
 
-  int getValueAsInt() override;
+  int getValueAsInt();
 protected:
-  virtual void readRawValue() override;
-  virtual void saveLastNotifiedState() override;
-  virtual bool observersMustBeNotified() override;
-  virtual void initialize() override;
+  virtual void readRawValue();
+  virtual void saveLastNotifiedState();
+  virtual bool observersMustBeNotified();
+  virtual void initialize();
 private:
   Adafruit_BMP280 bmp;
   BarometerResult prevValues;
