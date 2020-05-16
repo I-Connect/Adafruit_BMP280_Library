@@ -30,8 +30,8 @@ int BMP280BarometerSensor::getValueAsInt() {
 
 
 void BMP280BarometerSensor::readRawValue() {
-  lastValues.tempInCelcius = bmp.readTemperature();
-  lastValues.pressure = bmp.readPressure() / 100;
+  lastValues.tempInCelcius = round(bmp.readTemperature() * 10);
+  lastValues.pressure = round(bmp.readPressure()/100);
 }
 
 void BMP280BarometerSensor::saveLastNotifiedState() {
@@ -41,3 +41,20 @@ void BMP280BarometerSensor::saveLastNotifiedState() {
 bool BMP280BarometerSensor::observersMustBeNotified() {
   return ((prevValues.pressure != lastValues.pressure) || (prevValues.tempInCelcius != lastValues.tempInCelcius) );
 }
+
+byte* BMP280BarometerSensor::getValueInBuffer(byte* buffer) {
+  memcpy(buffer, &lastValues, sizeof(lastValues)); 
+  return buffer;
+}
+
+uint8_t BMP280BarometerSensor::getMinBufferSize() {
+  return sizeof(lastValues);
+}
+
+char* BMP280BarometerSensor::getValueAsChar(char* buffer, uint8_t size) {
+  char temp[10];
+  dtostrf((float)lastValues.tempInCelcius/10, 2, 1, temp);
+  sprintf_P(buffer, PSTR("P: %d hPa T: %s C"), lastValues.pressure, temp);
+  return buffer;
+}
+

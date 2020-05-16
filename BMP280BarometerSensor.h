@@ -7,8 +7,8 @@
 
 struct BarometerResult
 {
-  float tempInCelcius;
-  int32_t pressure;
+  int16_t tempInCelcius; // times 10
+  uint16_t pressure;
 };
 
 /*
@@ -19,15 +19,19 @@ class BMP280BarometerSensor : virtual SenseI2CWireUser, public SenseNode
 public:
   BMP280BarometerSensor(uint8_t sensorId);
   
-  virtual int32_t getlastPressure();
-  virtual int32_t getPreviousPressure();
+  int32_t getlastPressure();
+  int32_t getPreviousPressure();
 
-  int getValueAsInt();
+  int getValueAsInt() override;
+  byte* getValueInBuffer(byte* buffer) override; 
+  uint8_t getMinBufferSize() override; 
+  char* getValueAsChar(char* buffer, uint8_t size) override;
+  
 protected:
-  virtual void readRawValue();
-  virtual void saveLastNotifiedState();
-  virtual bool observersMustBeNotified();
-  virtual void initialize();
+  void readRawValue() override;
+  void saveLastNotifiedState() override;
+  bool observersMustBeNotified();
+  void initialize();
 private:
   Adafruit_BMP280 bmp;
   BarometerResult prevValues;
