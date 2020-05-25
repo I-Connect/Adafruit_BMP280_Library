@@ -18,12 +18,11 @@ class BMP280BarometerSensor : virtual Sense::I2CBusSensor, public Sense::Observa
 public:
   BMP280BarometerSensor(uint8_t sensorId);
   
-  byte* getValueInBuffer(byte* buffer) override; 
+  void initialize() override;
   char* getReadableValue(char* buffer, const uint8_t size) override;
   
 protected:
   void readRawValue() override;
-  void initialize();
 private:
   Adafruit_BMP280 bmp;
 };
