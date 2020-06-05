@@ -22,7 +22,7 @@ void BMP280BarometerSensor::readRawValue() {
   BarometerResult lastValues;
   lastValues.tempInCelcius = round(bmp.readTemperature() * 10);
   lastValues.pressure = round(bmp.readPressure()/100);
-  setSingleValue(lastValues);
+  setSingleValue(lastValues, false);
 }
 
 char* BMP280BarometerSensor::getReadableValue(char* buffer, const uint8_t size) {
