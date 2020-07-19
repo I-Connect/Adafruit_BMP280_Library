@@ -13,9 +13,7 @@ pipeline {
                   git config --global credential.username ${GIT_USERNAME}
                   git config --global credential.helper "!echo password=${GIT_PASSWORD}; echo"
                   pio upgrade
-                  if test -f "platformio.ini"; then
-                    sed -i \'/default_envs/d\' platformio.ini
-                  fi
+                  sed -i \'/default_envs/d\' platformio.ini
                   pio run
                 """)
               }
