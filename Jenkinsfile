@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              withCredentials([usernamePassword(credentialsId: '9fca9b6e-90ef-4f91-9e36-3ff9967961b6', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+              withCredentials([usernamePassword(credentialsId: 'b93384a9-c09d-42b6-b8f1-adb1f4e045c6', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                 sh("""
                   echo {GIT_USERNAME}
                   echo {GIT_PASSWORD}
