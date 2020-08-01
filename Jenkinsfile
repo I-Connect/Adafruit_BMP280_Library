@@ -1,7 +1,7 @@
 pipeline {
     agent any
     options {
-        // timeout(time: 10, unit: 'MINUTES')
+        timeout(time: 10, unit: 'MINUTES')
         timestamps()
     }
 
@@ -17,13 +17,6 @@ pipeline {
                   pio run
                 """)
               }
-
-              // sshagent(credentials : ['c903076b-72d7-46a4-917a-c54b79d1af40']) { // Git IConnect credentials
-              //     sh 'pio upgrade' 
-              //     //remove default env to ensure all environments are built
-              //     sh 'sed -i \'/default_envs/d\' platformio.ini'
-              //     sh 'pio run'
-              // }
             }
         }
      }
