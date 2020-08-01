@@ -12,9 +12,13 @@ pipeline {
                 sh("""
                   git config --global credential.username ${GIT_USERNAME}
                   git config --global credential.helper "!echo password=${GIT_PASSWORD}; echo"
+                  git config --global advice.detachedHead false
+                  export PLATFORMIO_CORE_DIR=.
+                  export PLATFORMIO_CACHE_DIR=.
                   pio upgrade
                   sed -i \'/default_envs/d\' platformio.ini
                   pio run
+
                 """)
               }
             }
