@@ -2,7 +2,7 @@
 #pragma once
 
 #include "SenseNode.h"
-#include "SenseI2CBusSensor.h"
+#include "I2CBusSensor.h"
 #include "Adafruit_BMP280.h"
 #ifdef ESP32 
   #include "Observable.h"
