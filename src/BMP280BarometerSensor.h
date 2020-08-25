@@ -14,16 +14,16 @@ struct BarometerResult
 /*
   I2C barometer sensor, address = 0x77
 */
-class BMP280BarometerSensor : virtual Sense::I2CBusSensor, public Sense::ObservableNode<BarometerResult> {
+class BMP280BarometerSensor : virtual public Sense::I2CBusSensor, public Sense::ObservableNode<BarometerResult> {
 public:
   BMP280BarometerSensor(uint8_t sensorId);
+  virtual ~BMP280BarometerSensor() {};
   
-  byte* getValueInBuffer(byte* buffer) override; 
   char* getReadableValue(char* buffer, const uint8_t size) override;
   
 protected:
   void readRawValue() override;
-  void initialize();
+  void initialize() override;
 private:
   Adafruit_BMP280 bmp;
 };
