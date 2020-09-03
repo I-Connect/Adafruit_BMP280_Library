@@ -15,9 +15,9 @@ pipeline {
                   git config --global advice.detachedHead false
                   export PLATFORMIO_CORE_DIR=.
                   export PLATFORMIO_CACHE_DIR=.
-                  pio upgrade
+                  $PLATFORMIO_FOLDER/pio upgrade
                   sed -i \'/default_envs/d\' platformio.ini
-                  pio run
+                  $PLATFORMIO_FOLDER/pio run
 
                 """)
               }
