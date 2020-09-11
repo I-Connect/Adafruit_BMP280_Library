@@ -27,10 +27,11 @@
     "dependencies": [
         {
             "name": "Adafruit Unified Sensor",
-            "version": "~1.0.3"
+            "version": "Adafruit/Adafruit Unified Sensor/~1.0.3"
         },
         {
-            "name": "I-Connect/SenseFramework"
+            "name": "SenseFramework",
+            "version": "https://github.com/I-Connect/SenseFramework"
         }
   ]
 }
