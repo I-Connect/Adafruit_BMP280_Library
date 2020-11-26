@@ -31,7 +31,7 @@
         },
         {
             "name": "SenseFramework",
-            "version": "https://github.com/I-Connect/SenseFramework#DelegatedObservable"
+            "version": "https://github.com/I-Connect/SenseFramework"
         }
   ]
 }
