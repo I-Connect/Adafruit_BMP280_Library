@@ -2,7 +2,7 @@
 #include "Arduino.h"
 #include "BMP280BarometerSensor.h"
 
-BMP280BarometerSensor sensor{234};
+BMP280BarometerSensor sensor{234, 0x77};
 
 void setup() {
     pinMode(26, OUTPUT);

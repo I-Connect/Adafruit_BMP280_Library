@@ -5,10 +5,10 @@
 #include "BMP280BarometerSensor.h"
 #include "SenseUtils.h"
 
-BMP280BarometerSensor::BMP280BarometerSensor(uint8_t sensorId) : Sense::ObservableNode<BarometerResult>(sensorId) {}
+BMP280BarometerSensor::BMP280BarometerSensor(uint8_t sensorId, const uint8_t address) : Sense::ObservableNode<BarometerResult>(sensorId), address(address) {}
 
 void BMP280BarometerSensor::initialize() {
-  sensorActive = bmp.begin();
+  sensorActive = bmp.begin(address);
   if (sensorActive) {
     // first readings are wrong (initialization?), get them out of the way
     bmp.readPressure();
