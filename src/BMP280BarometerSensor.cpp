@@ -44,3 +44,10 @@ char* BMP280BarometerSensor::getReadableValue(char* buffer, const uint8_t size) 
   return buffer;
 }
 
+char* BMP280BarometerSensor::getMessage(char* buffer, uint8_t size) {
+  if (size >= 20) {
+    sprintf(buffer, "%d", (uint16_t)getSingleValue().pressure);
+  }
+  return buffer;
+}
+

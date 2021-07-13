@@ -20,6 +20,7 @@ public:
   virtual ~BMP280BarometerSensor() {};
   
   char* getReadableValue(char* buffer, const uint8_t size) override;
+  char* getMessage(char* buffer, uint8_t size) override;
   
 protected:
   void readRawValue() override;
